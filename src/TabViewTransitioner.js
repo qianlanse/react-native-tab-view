@@ -45,7 +45,7 @@ type State = {
 const DefaultTransitionSpec = {
   timing: Animated.spring,
   tension: 300,
-  friction: 30,
+  friction: 35,
 };
 
 export default class TabViewTransitioner extends Component<DefaultProps, Props, State> {
@@ -95,9 +95,7 @@ export default class TabViewTransitioner extends Component<DefaultProps, Props, 
   }
 
   componentWillUnmount() {
-    if (this._positionListener) {
-      this.state.position.removeListener(this._positionListener);
-    }
+    this.state.position.removeListener(this._positionListener);
   }
 
   _nextIndex: ?number;
